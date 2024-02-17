@@ -2,6 +2,7 @@
 
 import {Person} from "@/utils/icon/Icon";
 import React, {useState} from "react";
+import FormConnect from "./component/FormConnect";
 
 export default function Header() {
 	const [Open, setOpen] = useState(false);
@@ -15,12 +16,11 @@ export default function Header() {
 				<div className="font-bold drawer-button">Se connecter</div>
 				<Person className="h-6 w-6" />
 			</div>
-			<div
-				className={`${
-					Open ? "opacity-100" : "opacity-0"
-				} px-10 py-12 w-1/5 bg-customRed rounded-3xl flex flex-row gap-6 absolute top-16 right-2 transition-all ease-linear duration-500 `}>
-				ewfwef
-			</div>
+			{Open && (
+				<div className="px-6 py-4 w-1/5 rounded-xl flex flex-row gap-6 absolute top-16 right-6 bg-white shadow-xl">
+					<FormConnect />
+				</div>
+			)}
 		</div>
 	);
 }

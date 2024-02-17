@@ -9,11 +9,16 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
-				blue: "#70A6E8",
+				customWhite: "#f1faee",
+				customGray: "#a2acba",
+				customGreen: "#4daa57",
+				customRed: "#e63946",
+				customBlue: "#457b9d",
+				customDarkBlue: "#1d3557",
 			},
 		},
 	},
-	// plugins: [require("daisyui")],
+	plugins: [require("daisyui")],
 	// daisyui: {
 	// 	themes: false, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
 	// 	darkTheme: "dark", // name of one of the included themes for dark mode

@@ -1,22 +1,20 @@
 "use client";
 
 import React, {useContext, useState} from "react";
-import MyButton from "./MyButton";
-import ModalLayout from "@/globalComponent/Modal";
-import FormQuestion from "./component/FormQuestion";
+import MyButton from "./component/MyButton";
 import {SearchContext} from "@/context/SearchProvider";
+import Modal from "@/components/Modal";
+import FormQuestion from "./component/FormQuestion";
 
 export default function SearchBar() {
 	const search = useContext(SearchContext);
 
 	// State Popup
 	const [open, setOpen] = useState(false);
-	const handleToogle = () => {
-		setOpen(!open);
-	};
+	const togglePopup = () => setOpen(!open);
 
 	return (
-		<div className="px-6 py-4 rounded-xl flex justify-center items-center gap-2 bg-white ">
+		<div className="pl-5 pr-3 py-3 rounded-xl flex justify-center items-center gap-2 bg-white ">
 			<input
 				type="text"
 				placeholder="Recherche par thème"
@@ -24,9 +22,12 @@ export default function SearchBar() {
 				value={search.Value}
 				onChange={search.handleChange}
 			/>
-			<MyButton label="Demander une question" handleClick={handleToogle} />
-
-			{/* <FormQuestion closePopup={handleToogle} /> */}
+			<MyButton label="Demander une question" handleClick={togglePopup} />
+			{open && (
+				<Modal open={open} onClick={togglePopup}>
+					<FormQuestion closePopup={togglePopup} />
+				</Modal>
+			)}
 		</div>
 	);
 }

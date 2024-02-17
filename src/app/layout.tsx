@@ -1,21 +1,16 @@
-import type {Metadata} from "next";
 import "./globals.css";
-import Header from "../globalComponent/Header";
+import type {Metadata} from "next";
 
 export const metadata: Metadata = {
 	title: "FAQ",
+	description: "Page pour FAQ",
 };
 
-export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
+export default function RootLayout({children}: {children: React.ReactNode}) {
 	return (
-		<html data-theme="light">
-			<body className="m-0 p-0 bg-slate-100">
-				<Header />
-				<div className="container m-auto">{children}</div>
+		<html lang="fr" data-theme="light">
+			<body className="m-0 p-0 h-screen bg-customWhite">
+				<div>{children}</div>
 			</body>
 		</html>
 	);

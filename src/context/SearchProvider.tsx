@@ -5,11 +5,13 @@ import React, {Context, createContext, useState} from "react";
 
 type SearchContextType = {
 	Value: string;
+	setValue: React.Dispatch<React.SetStateAction<string>>;
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const SearchContext = React.createContext<any>({
 	Value: "",
+	setValue: () => {},
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => {},
 });
 
@@ -21,6 +23,7 @@ export default function SearchProvider({children}: {children: React.ReactNode}) 
 
 	const value = {
 		Value,
+		setValue,
 		handleChange,
 	};
 

@@ -1,8 +1,10 @@
 "use client";
 
+import {SearchContext} from "@/context/SearchProvider";
+import {useSearch} from "@/hook/Search";
 import {TQuestion} from "@/type/TQuestion";
 import {TReponse} from "@/type/TReponse";
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 
 const ListQuestion: TQuestion[] = [
 	{
@@ -64,29 +66,35 @@ const ListReponse: TReponse[] = [
 ];
 
 export default function Content() {
+	const search = useContext(SearchContext);
+	const {SuggestedValues} = useSearch(ListQuestion, search.Value, search.setValue);
+
 	const [ListQuest, setListQuest] = useState<TQuestion[]>(ListQuestion);
+	// const [QuestFiltre, setQuestFiltre] = useState<TQuestion[]>();
+
 	const [ListRep, setListRep] = useState<TReponse[]>(ListReponse);
-
-	const [QuestFiltre, setQuestFiltre] = useState<TQuestion[]>();
-
 	return (
-		<div className="w-2/3 flex flex-col">
+		<div className="w-2/5 flex flex-col">
 			<>
 				{ListQuest.map((question, index) => (
-					<div key={index} className="flex flex-col gap-4">
-						<div id="Question" className="px-6 py-4 rounded-xl bg-white">
-							{question.content}
-						</div>
-						<div className="flex flex-col gap-4">
-							{ListRep.map((reponse, index) => (
-								<div key={index}>
-									{reponse.question === question.id && (
-										<div id="Reponse" className="px-6 py-4 rounded-xl bg-red-200">
-											{reponse.content}
-										</div>
-									)}
-								</div>
-							))}
+					<div key={index} className="flex flex-col">
+						<div>
+							<div id="Question" className="mt-4 px-6 py-4 rounded-xl bg-customGray text-white">
+								{question.title}
+							</div>
+							<div className="my-2 px-6 py-2 rounded-xl bg-white">
+								{ListRep.map((reponse, index) => (
+									<div key={index}>
+										{reponse.question === question.id && (
+											<>
+												<div id="Reponse" className="my-2">
+													{reponse.content}
+												</div>
+											</>
+										)}
+									</div>
+								))}
+							</div>
 						</div>
 					</div>
 				))}

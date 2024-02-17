@@ -1,5 +1,5 @@
-import MyFormButton from "@/app/component/component/component/MyFormButton";
-import MyInput from "@/app/component/component/component/MyInput";
+import MyFormButton from "@/app/faq/component/component/component/MyFormButton";
+import MyInput from "@/app/faq/component/component/component/MyInput";
 import Link from "next/link";
 import React from "react";
 

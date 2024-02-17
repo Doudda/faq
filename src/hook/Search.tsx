@@ -11,17 +11,17 @@ export function useSearch(
 	// liste des suggestions
 	const [SuggestedValues, setSuggestedValues] = useState<TQuestion[] | undefined>();
 	// control input artisan et gerer suggestions
-
+	const [InputValue, setInput] = useState<string | undefined>("");
 	// lorsqu'un element est selected
 	const [SelectedValue, setSelectedValue] = useState<TQuestion | undefined>();
 	const handleSelectValue = (value: TQuestion) => {
 		setSelectedValue(value);
 		setSuggestedValues(undefined);
-		setValues(value.theme);
+		setInput(value.theme);
 	};
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setValues(e.target.value);
+		setInput(e.target.value);
 		setSelectedValue(undefined);
 		if (e.target.value != "") {
 			const filteredValues = BaseValues.filter((value) =>
@@ -34,6 +34,11 @@ export function useSearch(
 	};
 
 	return {
+		setBaseValues,
+		SelectedValue,
+		InputValue,
+		handleChange,
 		SuggestedValues,
+		handleSelectValue,
 	};
 }

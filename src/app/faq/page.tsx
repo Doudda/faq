@@ -3,7 +3,7 @@ import Content from "../component/Content";
 import Header from "@/components/Header";
 import SearchProvider from "@/context/SearchProvider";
 
-export default function Home() {
+export default function page() {
 	return (
 		<>
 			<Header />

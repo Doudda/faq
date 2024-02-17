@@ -1,3 +1,37 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+/* Your existing CSS from the previous response */
+fade-in {
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in.visible {
+	opacity: 1;
+}
+
+.slide-in {
+	transform: translateX(100px);
+	transition: transform 0.5s ease-in-out;
+}
+
+.slide-in.visible {
+	transform: translateX(0);
+}
+
+/* Additional Tailwind classes */
+.opacity-0 {
+	opacity: 0;
+}
+
+.transform-translate-x-full {
+	transform: translateX(100%);
+}
+
+.visible {
+	/* Remove inline styles added previously in response B */
+	opacity: 1;
+	transform: translateX(0);
+}

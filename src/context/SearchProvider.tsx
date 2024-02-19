@@ -65,7 +65,7 @@ const ListReponse: TReponse[] = [
 	},
 ];
 
-const ListTheme: TTheme[] = [
+const ConstListTheme: TTheme[] = [
 	{
 		id: 1,
 		theme: "Langages de programmation",
@@ -94,14 +94,15 @@ export default function SearchProvider({children}: {children: React.ReactNode}) 
 	// Listes de base
 	const [ListQuest, setListQuest] = useState<TQuestion[]>(ListQuestion);
 	const [ListRep, setListRep] = useState<TReponse[]>(ListReponse);
+	const [ListTheme, setListTheme] = useState<TTheme[]>(ConstListTheme);
 
 	// Questions filtrees
 	const [FilteredQuest, setFilteredQuest] = useState<TQuestion[]>(ListQuestion);
 	// Questions sur suggestions
-	const [SuggestedValues, setSuggestedValues] = useState<TQuestion[] | undefined>();
+	const [SuggestedValues, setSuggestedValues] = useState<TTheme[] | undefined>();
 
 	// lorsqu'un Theme est selectionne
-	const handleSelectValue = (value: TQuestion) => {
+	const handleSelectValue = (value: TTheme) => {
 		setValue(value.theme);
 		setSuggestedValues(undefined);
 		setFilteredQuest(ListQuest.filter((quest) => quest.theme === value.theme));
@@ -110,10 +111,10 @@ export default function SearchProvider({children}: {children: React.ReactNode}) 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setValue(e.target.value);
 		if (e.target.value != "") {
-			const FilteredQuest = ListQuest.filter((quest) =>
-				quest.theme?.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())
+			const FilteredTheme = ListTheme.filter((theme) =>
+				theme.theme?.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())
 			);
-			setSuggestedValues(FilteredQuest);
+			setSuggestedValues(FilteredTheme);
 		} else {
 			setSuggestedValues(undefined);
 			setFilteredQuest(ListQuest);

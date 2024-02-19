@@ -2,9 +2,10 @@ import React from "react";
 import MyInput from "./component/MyInput";
 import MyFormButton from "./component/MyFormButton";
 import {AddQuestion} from "@/hook/AddQuestion";
+import MyInputTheme from "./component/MyInputTheme";
 
 export default function FormQuestion({closePopup}: {closePopup: VoidFunction}) {
-	const {register, handleSubmit, onSubmit, errors} = AddQuestion(closePopup);
+	const {register, handleSubmit, onSubmit, errors, ACT} = AddQuestion(closePopup);
 
 	return (
 		<div className="w-full flex flex-col gap-8">
@@ -25,12 +26,11 @@ export default function FormQuestion({closePopup}: {closePopup: VoidFunction}) {
 						register={register("content")}
 						errorMessage={errors.content}
 					/>
-					<MyInput
+					<MyInputTheme
 						label="Thème :"
 						name="theme"
 						placeholder="Langage de programmation"
-						register={register("theme")}
-						errorMessage={errors.theme}
+						act={ACT}
 					/>
 				</div>
 				<div className="w-full flex flex-row gap-4">

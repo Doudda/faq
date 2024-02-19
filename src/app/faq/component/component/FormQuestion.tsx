@@ -21,14 +21,14 @@ export default function FormQuestion({closePopup}: {closePopup: VoidFunction}) {
 					<MyInput
 						label="Votre avis :"
 						name="content"
-						placeholder="Python c'est mieux"
+						placeholder="PHP en 2024 : Un avenir peu prometteur"
 						register={register("content")}
 						errorMessage={errors.content}
 					/>
 					<MyInput
 						label="Thème :"
 						name="theme"
-						placeholder="Langages de programmation"
+						placeholder="Langage de programmation"
 						register={register("theme")}
 						errorMessage={errors.theme}
 					/>

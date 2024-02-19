@@ -4,7 +4,7 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-export function AddQuestion(closePopup: () => void) {
+export function CreateAccount() {
 	// * VALIDATION YUP
 	const addAnswerSchema = yup.object().shape({
 		first_name: yup.string().required("Ce champ est obligatoire"),
@@ -33,7 +33,36 @@ export function AddQuestion(closePopup: () => void) {
 		} catch (error: any) {
 			console.error(error);
 		} finally {
-			closePopup();
+			reset();
+		}
+	};
+
+	return {register, handleSubmit, onSubmit, errors};
+}
+
+export function Connexion() {
+	// * VALIDATION YUP
+	const addAnswerSchema = yup.object().shape({
+		email: yup.string().email("Ce champ est obligatoire").required("Ce champ est obligatoire"),
+		password: yup.string().required("Ce champ est obligatoire"),
+	});
+
+	// * REACT HOOK FORM
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: {errors},
+	} = useForm({resolver: yupResolver(addAnswerSchema)});
+
+	// * WHEN SUBMIT
+	const onSubmit = (data: any) => {
+		try {
+			// * les infos du formulaire sont dans data
+			console.log(data);
+		} catch (error: any) {
+			console.error(error);
+		} finally {
 			reset();
 		}
 	};

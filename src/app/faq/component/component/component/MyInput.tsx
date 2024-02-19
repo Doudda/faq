@@ -31,7 +31,7 @@ export default function MyInput({
 				)}
 				<div className={`px-2 py-2 w-full border-2 ${borderColor} rounded-xl`}>
 					<input
-						className="px-2 outline-none"
+						className="px-2 w-full outline-none"
 						id={name}
 						name={name}
 						type={type}

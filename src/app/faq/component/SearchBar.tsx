@@ -5,8 +5,8 @@ import MyButton from "./component/MyButton";
 import {SearchContext} from "@/context/SearchProvider";
 import Modal from "@/components/Modal";
 import FormQuestion from "./component/FormQuestion";
-import {TQuestion} from "@/type/TQuestion";
 import {Search} from "@/utils/icon/Icon";
+import {TTheme} from "@/type/TTheme";
 
 export default function SearchBar() {
 	const search = useContext(SearchContext);
@@ -27,7 +27,7 @@ export default function SearchBar() {
 			/>
 			{search.SuggestedValues && (
 				<div className="w-full bg-white flex flex-col gap-1 shadow-sm z-50 absolute left-0 top-14 rounded-b-xl border-white">
-					{search.SuggestedValues.map((item: TQuestion) => (
+					{search.SuggestedValues.map((item: TTheme) => (
 						<div
 							key={item.id}
 							className="flex flex-raw items-center px-5 py-3 rounded-xl hover:text-customBlue transition-all duration-100 cursor-pointer"

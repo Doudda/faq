@@ -1,4 +1,3 @@
-import {AutocompletionTheme} from "@/hook/AutocompletionTheme";
 import {TTheme} from "@/type/TTheme";
 import React from "react";
 

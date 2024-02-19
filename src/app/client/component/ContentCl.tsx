@@ -5,7 +5,7 @@ import {TQuestion} from "@/type/TQuestion";
 import {TReponse} from "@/type/TReponse";
 import React, {useContext} from "react";
 
-export default function Content() {
+export default function ContentCl() {
 	const search = useContext(SearchContext);
 
 	return (

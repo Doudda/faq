@@ -10,8 +10,8 @@ export default function MyButton({
 	handleClick?: VoidFunction;
 }) {
 	return (
-		<div className="px-6 py-2 bg-green-500 text-white rounded-lg cursor-pointer">
-			<button type={type} onClick={handleClick}>
+		<div className="max-h-11 px-6 py-2 bg-green-500 text-white rounded-lg cursor-pointer hover:opacity-90 ease-linear duration-100">
+			<button type={type} onClick={handleClick} className="">
 				{label}
 			</button>
 		</div>

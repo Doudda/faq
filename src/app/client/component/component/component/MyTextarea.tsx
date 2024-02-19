@@ -1,20 +1,17 @@
-import {Danger} from "@/utils/icon/Icon";
-import React, {HTMLInputTypeAttribute} from "react";
+import React from "react";
 import {UseFormRegisterReturn} from "react-hook-form";
 
 type Tprop = {
 	label?: string;
 	name?: string;
-	type?: HTMLInputTypeAttribute;
 	placeholder?: string;
 	register?: UseFormRegisterReturn;
 	errorMessage?: any;
 };
 
-export default function MyInput({
+export default function MyTextarea({
 	label = "",
 	name = "",
-	type = "text",
 	placeholder = "",
 	register,
 	errorMessage,
@@ -23,18 +20,17 @@ export default function MyInput({
 
 	return (
 		<>
-			<div className="flex flex-row items-center gap-2">
+			<div className="flex flex-row gap-2">
 				{label && (
-					<label className="w-40" htmlFor={name}>
+					<label className="pt-2 w-40" htmlFor={name}>
 						{label}
 					</label>
 				)}
 				<div className={`px-2 py-2 w-full border-2 ${borderColor} rounded-xl`}>
-					<input
-						className="px-2 outline-none"
+					<textarea
+						className="px-2 w-full h-full outline-none resize-none"
 						id={name}
 						name={name}
-						type={type}
 						placeholder={placeholder}
 						{...register}
 					/>
